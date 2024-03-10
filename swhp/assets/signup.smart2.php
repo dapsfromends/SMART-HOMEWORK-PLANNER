@@ -37,6 +37,6 @@ createUser($conn, $name, $email, $usersname, $password);
    
 }
 else {
-    header ("location: ../signup.php");
+    header ("location: ../signup2.php");
     die();
 }

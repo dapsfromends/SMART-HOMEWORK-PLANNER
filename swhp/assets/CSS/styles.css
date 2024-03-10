@@ -1,0 +1,56 @@
+@import "templatecolours.css";
+
+/*BODY MARGIN*/
+body
+{
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* NAVIGATION BAR*/
+nav>ul>li>a
+{
+    display: block;
+    color: #c2b7b7;
+    text-align: right;
+    padding: 5px;
+}
+
+nav ul
+{
+    text-decoration: none;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+
+/* IMAGE SIZING CSS*/
+#shwplogo
+{
+    width: 100px;
+    float: left;
+    padding-right: 450px;
+    padding-left: 100px;
+}
+
+
+
+
+/*TEXT STYLING*/
+h1{
+    font-family: 'Roboto', 'sans-serif';
+    font-weight: 300;
+}
+
+
+
+/*JUSTIFY ALIGNMENT*/
+.center
+{
+    text-align: center;
+}

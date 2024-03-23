@@ -1,63 +1,351 @@
-<?php
-include_once 'head.php';
-include_once 'header.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-    <!--BODY START-->
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Homework Planner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
 
+<header>
+    <a href="#" class="logo"><img src="assets/images/smarthome logo.jpg" alt="Smart Homework Planner Logo" style="height: 50px;"><i>Smart Homework Planner</i></a>
+    <nav class="navbar">
+        <a href="signup.php" class="btn">Signup</a>
+        <a href="signin.php" class="btn">Login</a>
+        <a href="/contact" class="btn">Contact</a>
+        <a href="/about-us" class="btn">About Us</a>
+        
+        </nav>
+      </div>
+    </nav>
+</header>
+
+
+
+<section class="home" id="home">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="assets/images/smarthome planner 1.jpg" class="d-block w-100 img-fluid" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="assets/images/smarthome planner image.jpg" class="d-block w-100 img-fluid" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/images/smarthome planner.jpg" class="d-block w-100 img-fluid" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div>
+      </div>
+      <section class="plan" id="plan"> 
+        <h1>Plan Your Task</h1>
+        <div class="content-container">
+            <div class="text-side">
+                <p>This website allows you to plan your task.</p>
+                <button onclick="redirectToSignup()">Task</button> 
+            </div>
+            <div class="image-side">
+                <img src="assets/images/WhatsApp Image 2024-03-11 at 14.59.57_b3642030.jpg">
+            </div>
+        </div>
+    </section>
+    
+    <section class="plan" id="plan"> 
+        <h1>Plan Your Homework</h1>
+        <div class="content-container">
+            <div class="text-side">
+                <p>This website allows you to plan your homework.</p>
+                <button onclick="redirectToSignup()">Homework</button> 
+            </div>
+            <div class="image-side">
+                <img src="assets/images/smarthome.jpg">
+            </div>
+        </div>
+    </section>
+    
+    <section class="plan" id="plan"> 
+        <h1>My Reminder</h1>
+        <div class="content-container">
+            <div class="text-side">
+                <p>This website allows you to set a reminder on your task or event.</p>
+                <button onclick="redirectToSignup()">My Reminder</button> 
+            </div>
+            <div class="image-side">
+              <img src="assets/images/Smarthome login .jpg">
+            </div>
+          </div>
+    </section>
+      </section>
+      <section class="plan" id="plan">
+        <h1>This site allows you to be Smarter towards your Daily tasks  <b></b> </h1>
+        <div class="content-container">
+          <div class="text-side">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id unde nihil consectetur natus pariatur quos vel alias tempora, quam commodi corporis quasi veniam delectus, dolores quis mollitia animi similique magni! </p>
+          </div>
+      <div class="book-animation">
+        <div class="book">
+            <div class="cover"></div>
+            <div class="pages">
+                <div class="text">Be Smart</div>
+            </div>
+        </div>
+    </div>
+      </section>
     <style>
-            body
-            {
-                --color-primary:#345678;
-                --color-primary-dark:#355680;
-                --color-secondary:#375555;
-                --color-error:#cc3333;
-                --color-success:#4bb568;
-                --border-radius: 4px;
 
-                margin: 0;
-                height: 100vh;
-                background: url(assets/images/background.jpg);
-                max-width: 1000px;
-                margin-left: auto;
-                margin-right: auto;
+      .navbar a:first-child{
+        margin-left: 90px;
+      }
+
+     .plan .content-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap:20px;
+    
+     } 
+     .plan .text-side, .plan .image-side{
+      flex:1;
+     }
+     .plan .image-side img{
+      width: 100%;
+      height: auto;
+     }
+        .book-animation {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  margin: 50px;
+  perspective: 100px;
+}
+
+.book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; /* Enables 3D transformations */
+  transition: transform 1s;
+  transform: rotateY(0deg); 
+}
+.book:hover {
+transform: rotateY(-30deg); /* Slight rotation on hover for effect */
+}
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #8D99AE;
+  z-index: 1;
+}
+
+.pages {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  background-color: #fff;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.text {
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 29px;
+  white-space: nowrap;
+  opacity: 0
+}
+
+
+
+
+:root {
+  --green: #27ae60;
+  --black: #192a56;
+  --light-color: #556;
+  --box-shadow: 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 2rem 5%;
+}
+
+section:nth-child(even) {
+    background: #eee;
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--black);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0.8rem 3rem;
+}
+
+.btn:hover {
+    background: var(--green);
+    letter-spacing: 0.1rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 1rem 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+header .logo {
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight: bolder;
+    display: inline-flex;
+    text-decoration: none; 
+    gap: 10px;
+}
+
+header .logo i {
+    height: .01px;
+}
+
+header .navbar a {
+    font-size: 1.7rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    color: var(--light-color);
+    text-decoration: none; /* Added to remove underline from links */
+}
+
+header .navbar a:hover, header .navbar .active {
+    color: #fff;
+    background: var(--green);
+}
+
+header .icons i, header .icons a {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color: var(--black);
+    background: #eee;
+    border-radius: 0.5rem; /* Corrected to add border-radius */
+}
+
+header .icons i:hover, header .icons a:hover {
+    color: #fff;
+    background: var(--green);
+}
+
+
+
+    </style>
+   <script>
+    function redirectToSignup() {
+        const isSignup = true; // Replace this with your actual signup status logic
+        if (isSignup) {
+            window.location.href = "signin.php";
+        } else {
+            window.location.href = "signup.php";
+        }
+    }
+
+    function writeText() {
+        const textElement = document.querySelector('.text');
+        let text = "Be Smart"; 
+        textElement.innerText = ''; 
+        let index = 0;
+
+        const colors = ['red', 'blue', 'green', 'purple', 'orange'];
+    let colorIndex = 0;
+    
+        function showLetter() {
+            if (index < text.length) {
+                textElement.style.color = colors[colorIndex % colors.length];
+                textElement.style.opacity = 1; 
+                textElement.innerHTML += text.charAt(index);
+                index++;
+                colorIndex++;
+                setTimeout(showLetter, 500); 
+            } else {
+                
+                setTimeout(() => {
+                    textElement.innerText = '';
+                    textElement.style.opacity = 0; 
+                    index = 0; 
+                    colorIndex = 0;
+                    writeText();
+                }, 2000);
             }
-        </style>
+        }
+    
+        showLetter();
+    }
+    
+    document.addEventListener('DOMContentLoaded', writeText);
+    </script>
+    
+</section>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script src="/script.js"></script>
+</body>
 
-        <!--MAIN START-->
-        <main>
-            <section>
-                <h1 class="center">A Smart Cross-platform student planner</h1>
-                <p>MySmartPlanner has free apps so students easily access their planner anytime and anywhere.
-                    The planner has helped millions of students since 2009 get better grades.
-                    If you're a student, <a href="signup.php"> sign up</a> today.
-                </p>
-            </section>
+<footer>
+	<p>Subscribe Now </p>
+	<button onclick="subscribe()">Facebook</button>
+	<button onclick="subscribe()">X</button>
+	<button onclick="subscribe()">Youtube</button>
+	<button onclick="subscribe()">Instagram</button>
+	<p id="result"></p>
+	<p> &copy; 2024 Smart Home Planner </p>
 
-        </main>
-        <!--MAIN END-->
-
-        <!--FOOTER START-->
-        <footer>
-
-        </footer>
-        <!--FOOTER END-->
-    </body>
-    <!--BODY END-->
-</html>
-
-<?php
-include_once 'footer.php';
-?>  
-
+</footer>
+<script>
+	function subscribe(platform) {
+		document.getElementById("result").innerHTML = "Subscribed to " + platform;
+	}
+	
+</script>
 
    
 </body>
-
-
 </html>
-

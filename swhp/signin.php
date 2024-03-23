@@ -62,6 +62,7 @@
                         <h3>Don't have an account yet? <a href="signup.php">Sign up</a></h3>
                     </fieldset>
                 </form>
+                <h4><i>Go <a href="index.php">home</a></i></h4>
             </div> 
     </body>
 </html>

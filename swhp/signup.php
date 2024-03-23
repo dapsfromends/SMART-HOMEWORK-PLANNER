@@ -45,12 +45,13 @@
                     <div class="form__input-error-message"></div>
                 </div>
                 <div class="form__input-group">
-                    <input type="password" name="password" value=""class="form__input" autofocus placeholder="password"/>
+                    <input type="password" name="password" value=""class="form__input" autofocus placeholder="Confirm Password"/>
                     <div class="form__input-error-message"></div>
                 </div>
                 <button class="form__button" type="submit">Continue</button>
                 <p class="form__text"><a class="form__link" id="linkLogin">Already have an account? <a href="signin.php">Sign in</a></a></p>
             </form>
+            <h4><i>Go <a href="index.php">home</a></i></h4>
         </div>
     </body>
 </html>        

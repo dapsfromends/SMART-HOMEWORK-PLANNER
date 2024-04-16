@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost:8889";
-$username = "smwp";
-$password = "teami";
+$username = "stds";
+$password = "mg455900";
 $dbname = "smarthomework";
 
 // Create connection

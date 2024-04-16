@@ -1,0 +1,97 @@
+body {
+  background-color: #fff; /* White color */
+  font-family: Arial, sans-serif; /* Choose a font family */
+  font-size: 16px; /* Set font size */
+  color: #333; /* Set text color */
+}
+
+body::after {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 255, 0.1); /* Semi-transparent blue overlay */
+}
+
+.container {
+  padding: 2rem;
+}
+
+h1 {
+  /* Style the main heading */
+  text-align: center;
+  font-weight: bold;
+}
+
+h2 {
+  /* Style subject headings */
+  margin-top: 2rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+.resource-category {
+  /* Group resources for each category */
+  margin-bottom: 2rem;
+}
+
+.card {
+  /* Customize card appearance */
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  width: 30%; /* Set card width to 30% for three in a row */
+  margin: 1rem; /* Add margin for spacing between cards */
+  float: left;
+}
+
+.card:hover {
+  /* Add a subtle hover effect */
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  /* Adjust image size within cards */
+  height: 100px;
+  object-fit: contain; /* Crop image to fit aspect ratio */
+}
+
+.card-body {
+  /* Increase padding for better readability */
+  padding: 1.5rem;
+}
+
+.btn-primary {
+  background-color: #007bff; /* Blue color */
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar ul li {
+  margin: 0 1.2rem;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: var(--color); /* Inherit color from root */
+}
+
+/* Assuming you want to style the active link differently: */
+.navbar ul li.active a {
+  color: #fff; /* Change this for desired active link color */
+  font-weight: bold; /* Optional: Make active link bolder */
+}

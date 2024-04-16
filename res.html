@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Reminders</title>
+    <link rel="stylesheet" href="assets/CSS/remstyle.css" />
+    
+  </head>
+  <body>
+    <header>
+      
+        <div class="navbar">
+          <div class="logo">
+            <h1> &nbsp; &nbsp; Smart Homework Planner</h1>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="profile1.html">Planner</a></li>
+              <li><a href="reminder.html">My Reminders</a></li>
+              <li><a href="res.html">Resources</a></li>
+              <li><a href="log_out.php">Log Out</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <br><br><br><br><br><br><br>
+    <div class="container">
+        <h2>Grammar and Writing</h2>
+        <div class="row row-cols-12 row-cols-md-12">
+          <div class="col mb-6">
+            <div class="card">
+              <img
+                src="assets/images/grammarlylogo.jpg"
+                class="card-img-top"
+                alt="Grammarly Logo"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Grammarly</h5>
+                <p class="card-text">
+                  An online grammar checker that helps you improve your writing by
+                  identifying and correcting errors.
+                </p>
+                <a href="https://www.grammarly.com/" class="btn btn-primary"
+                  >Visit Website</a
+                >
+              </div>
+            </div>
+          </div>
+          <br><br><br><br><br><br><br>
+          <div class="col mb-6">
+            <div class="card">
+              <img
+                src="assets/images/hemingwaylogo.jpg"
+                class="card-img-top"
+                alt="Hemingway Editor Logo"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Hemingway Editor</h5>
+                <p class="card-text">
+                  Helps improve readability by highlighting complex sentences and
+                  suggesting simpler alternatives.
+                </p>
+                <a href="https://hemingwayapp.com/" class="btn btn-primary"
+                  >Visit Website</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br><br><br><br><br><br>
+  
+        <section class="resource-category">
+          <h2><i class="fas fa-globe"></i> Language Learning</h2>
+          <div class="row row-cols-1 row-cols-md-2">
+            <div class="col mb-3">
+              <div class="card">
+                <img
+                  src="assets/images/duolingologo.jpg"
+                  class="card-img-top"
+                  alt="Duolingo Logo"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Duolingo</h5>
+                  <p class="card-text">
+                    A fun and interactive app to learn new languages through
+                    gamified lessons and practice.
+                  </p>
+                  <a href="https://www.duolingo.com/" class="btn btn-primary"
+                    >Visit Website</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <br><br><br><br><br><br><br>
+  
+        <h2>Math</h2>
+        <div class="row row-cols-1 row-cols-md-2">
+          <div class="col mb-3">
+            <div class="card">
+              <img
+                src="assets/images/khanacacdemymathapp.jpg"
+                class="card-img-top"
+                alt="Khan Academy Logo"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Khan Academy</h5>
+                <p class="card-text">
+                  Free online platform with video tutorials, practice exercises,
+                  and personalized learning paths for various math subjects.
+                </p>
+                <a href="https://www.khanacademy.org/" class="btn btn-primary"
+                  >Visit Website</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br><br><br><br><br><br>
+  
+        <h2>History</h2>
+        <div class="row row-cols-1 mb-3">
+          <div class="col">
+            <div class="card">
+              <img
+                src="assets/images/nationalgeologo.jpg"
+                class="card-img-top"
+                alt="National Geographic History Logo"
+              />
+              <div class="card-body">
+                <h5 class="card-title">National Geographic History</h5>
+                <p class="card-text">
+                  Explore articles, documentaries, videos, interactive features,
+                  and historical timelines on a wide range of historical topics
+                  from National Geographic.
+                </p>
+                <a
+                  href="https://www.nationalgeographic.com/history/"
+                  class="btn btn-primary"
+                  >Visit Website</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script>
+      
+
+      var timeoutIds = [];
+
+      function scheduleReminder() {
+        var title = document.getElementById("title").value;
+        var description = document.getElementById("description").value;
+        var date = document.getElementById("date").value;
+        var time = document.getElementById("time").value;
+
+        var dateTimeString = date + " " + time;
+        var scheduledTime = new Date(dateTimeString);
+        var currentTime = new Date();
+        var timeDifference = scheduledTime - currentTime;
+
+        if (timeDifference > 0) {
+          addReminder(title, description, dateTimeString);
+
+          var timeoutId = setTimeout(function () {
+            document.getElementById("notificationSound").play();
+            alert("You have an upcoming assignment!!!");
+
+            var notification = new Notification(title, {
+              body: description,
+              requireInteraction: true,
+            });
+          }, timeDifference);
+
+          timeoutIds.push(timeoutId);
+        } else {
+          alert("The scheduled time is in the past!");
+        }
+      }
+
+      function addReminder(title, description, dateTimeString) {
+        var tableBody = document.getElementById("reminderTableBody");
+
+        var row = tableBody.insertRow();
+
+        var titleCell = row.insertCell(0);
+        var descriptionCell = row.insertCell(1);
+        var dateTimeCell = row.insertCell(2);
+        var actionCell = row.insertCell(3);
+
+        titleCell.innerHTML = title;
+        descriptionCell.innerHTML = description;
+        dateTimeCell.innerHTML = dateTimeString;
+        actionCell.innerHTML =
+          '<button onclick = "deleteReminder(this);">Delete</button>';
+      }
+
+      function deleteReminder(button) {
+        var row = button.closest("tr");
+        var index = row.rowIndex;
+
+        clearTimeout(timeoutIds[index - 1]);
+        timeoutIds.splice(index - 1, 1);
+
+        row.remove();
+      }
+
+      function handleNotification(title, description) {
+        if ("Notification" in window) {
+          Notification.requestPermission().then(function (permission) {
+            if (permission === "granted") {
+              var notification = new Notification(title, {
+                body: description,
+              });
+            } else {
+              alert("Please allow notification access!");
+            }
+          });
+        }
+      }
+      window.onbeforeunload = function() {
+   localStorage.setItem(title, $('#inputTitle').val());
+   localStorage.setItem(description, $('#inputDesceiption').val());
+   localStorage.setItem(date, $('#inputDate').val());
+   localStorage.setItem(time, $('#inputTime').val());
+}
+      window.onload = function() {
+        var title = localStorage.getItem(title);
+        var description = localStorage.getItem(description);
+        var date = localStorage.getItem(date);
+        var time = localStorage.getItem(time);
+        if (title !== null) $('#inputTitle').val(title); if (description !== null) $('#inputDescription').val(description); if (date !== null) $('#inputDate').val(date); if (time !== null) $('#inputTime').val(time);
+        // ...
+      }
+    </script>
+  </body>
+</html>

@@ -6,7 +6,7 @@ include("db_connection.php");
 
 
 if (empty($_POST["username"]) || empty($_POST["email"]) || empty($_POST["password"]) || empty($_POST["confirmpassword"])) {
-    echo "Username, email, password, and confirm password fields are required.";
+    echo "<script>alert('Username, email, password, and confirm password fields are required.'); window.location.href = 'signup.html';</script>";
 } else {
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -16,19 +16,19 @@ if (empty($_POST["username"]) || empty($_POST["email"]) || empty($_POST["passwor
 
     
     if ($username === $email) {
-        echo "Username must not be the same as the email.";
+        echo "<script>alert('Username must not be the same as the email.'); window.location.href = 'signup.html';</script>";
     }
     
     elseif (strlen($username) < 8) {
-        echo "Username must be 8 characters or more.";
+        echo "<script>alert('Username must be 8 characters or more.'); window.location.href = 'signup.html';</script>";
     }
     
     elseif (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$/', $password)) {
-        echo "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit and no special character.";
+        echo "<script>alert('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit and no special character.'); window.location.href = 'signup.html';</script>";
     }
     
     elseif ($password !== $confirmpassword) {
-        echo "Passwords do not match.";
+        echo "<script>alert('Passwords do not match.'); window.location.href = 'signup.html';</script>";
     } else {
         
         $stmt = $conn->prepare("SELECT * FROM planner WHERE username = ? OR email = ?");
@@ -37,7 +37,8 @@ if (empty($_POST["username"]) || empty($_POST["email"]) || empty($_POST["passwor
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-            echo "Username or email already exists. Please choose another.";
+            echo "<script>alert('Username or email already exists. Please choose another.'); window.location.href = 'index.html';</script>";
+            
         } else {
            
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -46,9 +47,9 @@ if (empty($_POST["username"]) || empty($_POST["email"]) || empty($_POST["passwor
             $insertStmt = $conn->prepare("INSERT INTO planner (username, email, password) VALUES (?, ?, ?)");
             $insertStmt->bind_param("sss", $username, $email, $hashedPassword);
             if ($insertStmt->execute()) {
-                echo "Registration successful. You can now login.";
+                echo "<script>alert('Registration successful. You can now login.'); window.location.href = 'signin.html';</script>";
             } else {
-                echo "An error occurred during registration. Please try again later.";
+                echo "<script>alert('An error occurred during registration. Please try again later.'); window.location.href = 'signup.html';</script>";
             }
             $insertStmt->close();
         }
